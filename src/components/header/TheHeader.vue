@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white py-3 drop-shadow-lg">
+  <header class="bg-white py-3 shadow-lg shadow-slate-300">
     <div class="container flex items-center gap-12">
       <img src="/img/svg/logo.svg" alt="logo" />
       <input
