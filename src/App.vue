@@ -24,5 +24,5 @@ import TheTable from "@/components/table/TheTable.vue";
 import { useAppStore } from "./store/appStore";
 
 const appStore = useAppStore();
-const openModal = (id: string) => appStore.openModal(id);
+const openModal = (modalId: string) => appStore.openModal(modalId);
 </script>
