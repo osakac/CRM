@@ -6,6 +6,7 @@
       :is="modal.component"
       :is-visible="modal.isVisible"
       @close="appStore.closeModal(modal.id)"
+      :client-data="modal.clientData"
     ></component>
   </Teleport>
 </template>
