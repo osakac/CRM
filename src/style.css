@@ -11,3 +11,11 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+.v-popper--theme-custom-tooltip .v-popper__inner {
+  @apply bg-black text-gray-300 rounded-[5px] py-1 px-3;
+}
+
+.v-popper--theme-custom-tooltip .v-popper__arrow-outer {
+  @apply border-black;
+}
