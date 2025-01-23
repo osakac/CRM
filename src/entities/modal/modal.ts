@@ -1,19 +1,17 @@
 import type { Component } from "vue";
-
-interface ModalProps {
-  isVisible: boolean;
-}
+import type { IClient } from "../client/types";
 
 export class Modal {
   id: string;
   isVisible: boolean;
   component: Component;
-  // props: ModalProps;
+  clientData: IClient | null;
 
   constructor(id: string, component: Component) {
     this.id = id;
     this.isVisible = false;
     this.component = component;
+    this.clientData = null;
   }
 
   openModal() {
@@ -22,5 +20,6 @@ export class Modal {
 
   closeModal() {
     this.isVisible = false;
+    this.clientData = null;
   }
 }
