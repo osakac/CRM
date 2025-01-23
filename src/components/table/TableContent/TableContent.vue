@@ -5,7 +5,21 @@
       <div class="w-[21%]">{{ client.surname }} {{ client.name }} {{ client.secondName }}</div>
       <div class="w-[17%]">{{ formatDateTime(client.dateCreated) }}</div>
       <div class="w-[17%]">{{ formatDateTime(client.dateUpdated) }}</div>
-      <div class="w-[15%]">Контакты</div>
+      <div class="w-[15%] flex flex-wrap items-center gap-2">
+        <span
+          v-for="contact in client.contacts"
+          :key="contact.id"
+          v-tooltip="{ content: contact.contactValue, theme: 'custom-tooltip' }"
+        >
+          <img :src="getContactIcon(contact.contactType)" :alt="contact.contactType" />
+        </span>
+        <button
+          class="rounded-full border border-purple-700 text-sm hover:bg-purple-700 hover:text-white px-1 py-0.5"
+          v-if="client.contacts.length > 4"
+        >
+          +{{ client.contacts.length - 4 }}
+        </button>
+      </div>
       <div class="w-[23%]">
         <button class="optionBtn bg-blue-500 text-white mr-7" @click="onEdit(client.id)">Изменить</button>
         <button class="optionBtn bg-red-500 text-white" @click="onDeleteClient(client.id)">Удалить</button>
@@ -26,6 +40,8 @@ const clientStore = useClientStore();
 
 const onEdit = (clientId: number) => appStore.openModal("clientModal", clientId);
 const onDeleteClient = (clientId: number) => clientStore.deleteClient(clientId);
+
+const getContactIcon = (contactType: string) => `/img/svg/${contactType}-contact-icon.svg`;
 </script>
 
 <style scoped>
