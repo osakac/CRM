@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-end pl-5 mb-2 text-gray-400">
-    <div class="w-[7%]">ID <button class="arrow-btn"></button></div>
+    <div class="w-[7%]">ID</div>
     <div class="w-[21%]">Фамилия Имя Отчество <button class="arrow-btn"></button></div>
     <div class="w-[17%]">Дата и время<br />создания <button class="arrow-btn"></button></div>
     <div class="w-[17%]">Последние<br />изменения <button class="arrow-btn"></button></div>
