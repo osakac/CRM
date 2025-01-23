@@ -10,7 +10,7 @@ export const clientSchema = object({
       object({
         id: number().required(),
         contactType: string().required(),
-        contactValue: string().required("поле не может быть пустым"),
+        contactValue: string().required("Поле не может быть пустым"),
       }),
     )
     .default([]),
@@ -20,6 +20,5 @@ export type TClientSchema = InferType<typeof clientSchema>;
 
 export const validateClientData = (values: InferType<typeof clientSchema>) => {
   values = clientSchema.cast(values);
-  console.log(values);
   return values;
 };
