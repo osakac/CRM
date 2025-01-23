@@ -8,7 +8,11 @@ export const POSSIBLE_CLIENT_CONTACTS = [
     contactValue: "Email",
   },
   {
-    contactType: "telegram",
-    contactValue: "Telegram",
+    contactType: "vk",
+    contactValue: "VK",
+  },
+  {
+    contactType: "facebook",
+    contactValue: "Facebook",
   },
 ];
