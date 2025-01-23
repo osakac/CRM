@@ -5,18 +5,26 @@ export class Client implements IClient {
   id: number;
   name: string;
   surname: string;
-  secondName: string;
+  secondName: string | undefined;
   dateCreated: Date;
   dateUpdated: Date;
   contacts: IClientContact[];
 
-  constructor(client: TClientSchema) {
+  constructor(clientData: TClientSchema) {
     this.id = Date.now();
-    this.name = client.name;
-    this.surname = client.surname;
-    this.secondName = client.secondName ?? "";
+    this.name = clientData.name;
+    this.surname = clientData.surname;
+    this.secondName = clientData.secondName;
     this.dateCreated = new Date();
     this.dateUpdated = new Date();
-    this.contacts = client.contacts;
+    this.contacts = clientData.contacts;
+  }
+
+  updateClientData(clientData: TClientSchema) {
+    this.name = clientData.name;
+    this.surname = clientData.surname;
+    this.secondName = clientData.secondName;
+    this.contacts = clientData.contacts;
+    this.dateUpdated = new Date();
   }
 }
