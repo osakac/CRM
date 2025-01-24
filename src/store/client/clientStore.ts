@@ -30,11 +30,12 @@ export const useClientStore = defineStore("clientStore", () => {
       },
     },
   ]);
+  const getClients = () => clients.value;
 
   const addClient = (clientData: TClientSchema) => clients.value.push(new Client(clientData));
   const deleteClient = (clientId: number) => (clients.value = clients.value.filter((c) => c.id !== clientId));
   const updateClient = (clientId: number, clientData: TClientSchema) =>
     clients.value.find((c) => c.id === clientId)?.updateClientData(clientData);
 
-  return { clients, addClient, deleteClient, updateClient };
+  return { clients, getClients, addClient, deleteClient, updateClient };
 });
