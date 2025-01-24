@@ -1,11 +1,13 @@
 <template>
-  <div class="mb-10">
-    <TableHeader
-      @sort-by-name="sortBy = 'fullName'"
-      @sort-by-date-created="sortBy = 'dateCreated'"
-      @sort-by-date-updated="sortBy = 'dateUpdated'"
-    />
-    <TableContent :clients="clientsComputed" />
+  <div class="tableWrapper">
+    <div class="mb-10 min-w-[983px]">
+      <TableHeader
+        @sort-by-name="sortBy = 'fullName'"
+        @sort-by-date-created="sortBy = 'dateCreated'"
+        @sort-by-date-updated="sortBy = 'dateUpdated'"
+      />
+      <TableContent :clients="clientsComputed" />
+    </div>
   </div>
 </template>
 
@@ -27,3 +29,13 @@ const clientsComputed = computed(() => {
   return clients;
 });
 </script>
+
+<style scoped>
+.tableWrapper {
+  @apply overflow-x-scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+</style>
