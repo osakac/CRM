@@ -5,10 +5,13 @@
       <input
         class="h-10 w-[500px] bg-transparent px-4 py-3 border-2 border-gray-200 outline-none"
         type="text"
-        placeholder="Введите запрос"
+        placeholder="Введите имя"
+        v-model="searchField"
       />
     </div>
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const searchField = defineModel();
+</script>
