@@ -20,7 +20,7 @@ const clientStore = useClientStore();
 
 const sortBy = ref<TSortBy>("fullName");
 const clientsComputed = computed(() => {
-  const clients = clientStore.clients.value.toSorted(sortFunction(sortBy.value));
+  const clients = clientStore.getClients().toSorted(sortFunction(sortBy.value));
   return clients;
 });
 </script>
