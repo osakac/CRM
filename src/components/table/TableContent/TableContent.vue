@@ -2,7 +2,7 @@
   <div class="h-[400px] w-full bg-white overflow-y-scroll my-table rounded-lg">
     <div class="client flex items-center pl-5 py-3 hover:bg-gray-200" v-for="client in clients" :key="client.id">
       <div class="w-[7%]">{{ client.id.toString().slice(-6) }}</div>
-      <div class="w-[21%]">{{ client.surname }} {{ client.name }} {{ client.secondName }}</div>
+      <div class="w-[21%]">{{ client.fullName }}</div>
       <div class="w-[17%]">{{ formatDateTime(client.dateCreated) }}</div>
       <div class="w-[17%]">{{ formatDateTime(client.dateUpdated) }}</div>
       <div class="w-[15%] flex flex-wrap items-center gap-2">
