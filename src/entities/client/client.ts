@@ -3,6 +3,7 @@ import type { IClient, IClientContact } from "./types";
 
 export class Client implements IClient {
   id: number;
+  fullName: string;
   name: string;
   surname: string;
   secondName: string | undefined;
@@ -12,6 +13,7 @@ export class Client implements IClient {
 
   constructor(clientData: TClientSchema) {
     this.id = Date.now();
+    this.fullName = `${clientData.surname} ${clientData.name} ${clientData.secondName ?? ""}`;
     this.name = clientData.name;
     this.surname = clientData.surname;
     this.secondName = clientData.secondName;
@@ -21,6 +23,7 @@ export class Client implements IClient {
   }
 
   updateClientData(clientData: TClientSchema) {
+    this.fullName = `${clientData.surname} ${clientData.name} ${clientData.secondName ?? ""}`;
     this.name = clientData.name;
     this.surname = clientData.surname;
     this.secondName = clientData.secondName;

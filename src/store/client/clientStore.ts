@@ -8,6 +8,7 @@ export const useClientStore = defineStore("clientStore", () => {
   const clients = ref<IClient[]>([
     {
       id: 123456,
+      fullName: "Скворцов Денис Юрьевич",
       name: "Денис",
       surname: "Скворцов",
       secondName: "Юрьевич",
