@@ -1,6 +1,8 @@
 import type { IClient } from "@/entities/client/types";
 
-export const sortFunction = (field: "fullName" | "dateCreated" | "dateUpdated") => (a: IClient, b: IClient) => {
+export type TSortBy = "fullName" | "dateCreated" | "dateUpdated";
+
+export const sortFunction = (field: TSortBy) => (a: IClient, b: IClient) => {
   if (field === "fullName") return a[field].localeCompare(b[field]);
 
   if (a[field] < b[field]) return -1;
