@@ -1,11 +1,11 @@
 <template>
   <div class="h-[400px] w-full bg-white overflow-y-scroll my-table rounded-lg">
     <div class="client flex items-center pl-5 py-3 hover:bg-gray-200" v-for="client in clients" :key="client.id">
-      <div class="w-[7%]">{{ client.id.toString().slice(-6) }}</div>
-      <div class="w-[21%]">{{ client.fullName }}</div>
-      <div class="w-[17%]">{{ formatDateTime(client.dateCreated) }}</div>
-      <div class="w-[17%]">{{ formatDateTime(client.dateUpdated) }}</div>
-      <div class="w-[15%] flex flex-wrap items-center gap-2">
+      <div class="w-[7%] pad">{{ client.id.toString().slice(-6) }}</div>
+      <div class="w-[21%] pad">{{ client.fullName }}</div>
+      <div class="w-[17%] pad">{{ formatDateTime(client.dateCreated) }}</div>
+      <div class="w-[17%] pad">{{ formatDateTime(client.dateUpdated) }}</div>
+      <div class="w-[15%] flex flex-wrap items-center gap-2 pad">
         <span
           v-for="contact in client.contacts"
           :key="contact.id"
@@ -20,8 +20,8 @@
           +{{ client.contacts.length - 4 }}
         </button>
       </div>
-      <div class="w-[23%]">
-        <button class="optionBtn bg-blue-500 text-white mr-7" @click="onEdit(client.id)">Изменить</button>
+      <div class="w-[23%] flex flex-wrap gap-x-4 gap-y-2 pad">
+        <button class="optionBtn bg-blue-500 text-white" @click="onEdit(client.id)">Изменить</button>
         <button class="optionBtn bg-red-500 text-white" @click="onDeleteClient(client.id)">Удалить</button>
       </div>
     </div>
@@ -55,5 +55,9 @@ const getContactIcon = (contactType: string) => `/img/svg/${contactType}-contact
 
 .optionBtn {
   @apply rounded-md px-2 py-1;
+}
+
+.pad {
+  @apply pr-3;
 }
 </style>
