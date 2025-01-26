@@ -6,12 +6,14 @@ import { useClientStore } from "./client/clientStore";
 
 export const useAppStore = defineStore("appStore", () => {
   const modals = ref<Modal[]>([new Modal("clientModal", shallowRef(ClientModal))]);
+  const getModals = () => modals.value;
+
   const openModal = (modalId: string, clientId?: number) => {
     const modal = modals.value.find((m) => m.id === modalId);
 
     if (clientId && modal) {
       const clientStore = useClientStore();
-      const clientProps = clientStore.clients.find((c) => c.id === clientId);
+      const clientProps = clientStore.getClients().find((c) => c.id === clientId);
       if (clientProps) modal.clientData = clientProps;
     }
 
@@ -20,5 +22,5 @@ export const useAppStore = defineStore("appStore", () => {
 
   const closeModal = (id: string) => modals.value.find((m) => m.id === id)?.closeModal();
 
-  return { modals, openModal, closeModal };
+  return { modals, getModals, openModal, closeModal };
 });
