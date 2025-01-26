@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <component
-      v-for="modal in appStore.modals"
+      v-for="modal in appStore.getModals()"
       :key="modal.id"
       :is="modal.component"
       :is-visible="modal.isVisible"
